@@ -1,5 +1,9 @@
 # Pett Love
 
+<div align="center">
+  <img src="src/assets/screen.png" alt="Imagem do site PettLove">
+</div>
+
 [![Version](https://img.shields.io/badge/version-0.0.0-blue.svg)](https://github.com/your-username/pett-love)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/your-username/pett-love/blob/main/LICENSE)
 
