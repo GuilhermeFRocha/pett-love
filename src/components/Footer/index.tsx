@@ -7,50 +7,10 @@ import "./style.scss";
 
 import LogoFooter from "../../assets/logo-footer.svg";
 import ArrowDown from "../../assets/arrow-down.svg";
-import FaceIcon from "../../assets/face-icon.svg";
-import InstaIcon from "../../assets/insta-icon.svg";
-import YoutubeIcon from "../../assets/youtube-icon.svg";
 import Clickweb from "../../assets/clickweb.svg";
-
-type LinkFooter = {
-  href: string;
-  label: string;
-};
-
-type SocialMediaLink = {
-  name: string;
-  url: string;
-  icon: string;
-};
+import { linksFooter, socialMediaLinks } from "./utils/links-footer";
 
 export const Footer = () => {
-  const linksFooter: LinkFooter[] = [
-    { href: "/", label: "Sobre nós" },
-    { href: "/como-funciona", label: "Como funciona" },
-    { href: "/duvidas", label: "Dúvidas frequentes" },
-    { href: "/blog", label: "Blog" },
-    { href: "/pets", label: "Comece agora!" },
-    { href: "/contato", label: "Contato" },
-  ];
-
-  const socialMediaLinks: SocialMediaLink[] = [
-    {
-      name: "Facebook",
-      url: "https://www.facebook.com/ClickwebAgencia/",
-      icon: FaceIcon,
-    },
-    {
-      name: "Instagram",
-      url: "https://www.instagram.com/clickweb/",
-      icon: InstaIcon,
-    },
-    {
-      name: "YouTube",
-      url: "https://www.youtube.com/@clickwebagenciadigital1101",
-      icon: YoutubeIcon,
-    },
-  ];
-
   const copyRef = useRef<HTMLSpanElement>(null);
 
   const handleScrollToTop = () => {

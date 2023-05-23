@@ -5,54 +5,11 @@ import { AiOutlineCloseCircle } from "react-icons/ai";
 import "./style.scss";
 
 import MenuIcon from "../../assets/menu.svg";
-
-type MenuItem = {
-  label: string;
-  href: string;
-};
+import { menuItems } from "./utils/menu-item";
 
 export const Menu = () => {
-  const menuItems: MenuItem[] = [
-    {
-      label: "Sobre nós",
-      href: "/",
-    },
-    {
-      label: "Dúvidas frequentes",
-      href: "/duvidas",
-    },
-    {
-      label: "Pets namorando",
-      href: "/pets",
-    },
-    {
-      label: "Contato",
-      href: "/contato",
-    },
-    {
-      label: "Como funciona",
-      href: "/",
-    },
-    {
-      label: "Blog",
-      href: "/blog",
-    },
-    {
-      label: "Comece agora!",
-      href: "/pets",
-    },
-  ];
-
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    if (isOpen) {
-      window.document.body.classList.add("body-no-scroll");
-    } else {
-      window.document.body.classList.remove("body-no-scroll");
-    }
-  }, [isOpen]);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -63,6 +20,14 @@ export const Menu = () => {
       setIsOpen(false);
     }
   };
+
+  useEffect(() => {
+    if (isOpen) {
+      window.document.body.classList.add("body-no-scroll");
+    } else {
+      window.document.body.classList.remove("body-no-scroll");
+    }
+  }, [isOpen]);
 
   useEffect(() => {
     document.addEventListener("click", handleClickOutside);
