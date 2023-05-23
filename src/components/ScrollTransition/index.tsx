@@ -1,11 +1,12 @@
 import { useRef, useEffect, useState, ReactNode } from "react";
+
 import "./style.scss";
 
 interface ScrollTransitionProps {
   children: ReactNode;
 }
 
-function ScrollTransition({ children }: ScrollTransitionProps) {
+const ScrollTransition = ({ children }: ScrollTransitionProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -34,6 +35,6 @@ function ScrollTransition({ children }: ScrollTransitionProps) {
       {children}
     </div>
   );
-}
+};
 
 export default ScrollTransition;

@@ -1,11 +1,12 @@
 import { useRef, useEffect, useState, ReactNode } from "react";
+
 import "./styles.scss";
 
 interface ScrollPetTransitionProps {
   children: ReactNode;
 }
 
-function ScrollPet({ children }: ScrollPetTransitionProps) {
+const ScrollPet = ({ children }: ScrollPetTransitionProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -40,6 +41,6 @@ function ScrollPet({ children }: ScrollPetTransitionProps) {
       {children}
     </div>
   );
-}
+};
 
 export default ScrollPet;

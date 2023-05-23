@@ -12,10 +12,48 @@ import InstaIcon from "../../assets/insta-icon.svg";
 import YoutubeIcon from "../../assets/youtube-icon.svg";
 import Clickweb from "../../assets/clickweb.svg";
 
+type LinkFooter = {
+  href: string;
+  label: string;
+};
+
+type SocialMediaLink = {
+  name: string;
+  url: string;
+  icon: string;
+};
+
 export const Footer = () => {
+  const linksFooter: LinkFooter[] = [
+    { href: "/", label: "Sobre nós" },
+    { href: "/como-funciona", label: "Como funciona" },
+    { href: "/duvidas", label: "Dúvidas frequentes" },
+    { href: "/blog", label: "Blog" },
+    { href: "/pets", label: "Comece agora!" },
+    { href: "/contato", label: "Contato" },
+  ];
+
+  const socialMediaLinks: SocialMediaLink[] = [
+    {
+      name: "Facebook",
+      url: "https://www.facebook.com/ClickwebAgencia/",
+      icon: FaceIcon,
+    },
+    {
+      name: "Instagram",
+      url: "https://www.instagram.com/clickweb/",
+      icon: InstaIcon,
+    },
+    {
+      name: "YouTube",
+      url: "https://www.youtube.com/@clickwebagenciadigital1101",
+      icon: YoutubeIcon,
+    },
+  ];
+
   const copyRef = useRef<HTMLSpanElement>(null);
 
-  const handleClick = () => {
+  const handleScrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
@@ -37,6 +75,7 @@ export const Footer = () => {
       }
     }
   };
+
   return (
     <footer>
       <div className="footer-container">
@@ -55,24 +94,11 @@ export const Footer = () => {
           <div className="footer-content-nav">
             <nav className="footer-navbar">
               <ul>
-                <li>
-                  <a href="/">Sobre nós</a>
-                </li>
-                <li>
-                  <a href="/como-funciona">Como funciona</a>
-                </li>
-                <li>
-                  <a href="/duvidas">Dúvidas frequentes</a>
-                </li>
-                <li>
-                  <a href="/blog">Blog</a>
-                </li>
-                <li>
-                  <a href="/pets">Comece agora!</a>
-                </li>
-                <li>
-                  <a href="/contato">Contato</a>
-                </li>
+                {linksFooter.map((link) => (
+                  <li key={link.href}>
+                    <a href={link.href}>{link.label}</a>
+                  </li>
+                ))}
               </ul>
             </nav>
             <div className="footer-entitie">
@@ -97,27 +123,13 @@ export const Footer = () => {
             </div>
           </div>
           <ul className="footer-social">
-            <li>
-              <a
-                href="https://www.facebook.com/ClickwebAgencia/"
-                target="_blank"
-              >
-                <img src={FaceIcon} alt="Icone Facebook" />
-              </a>
-            </li>
-            <li>
-              <a href="https://www.instagram.com/clickweb/" target="_blank">
-                <img src={InstaIcon} alt="Icone Insta" />
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.youtube.com/@clickwebagenciadigital1101"
-                target="_blank"
-              >
-                <img src={YoutubeIcon} alt="Icone youtube" />
-              </a>
-            </li>
+            {socialMediaLinks.map((link) => (
+              <li key={link.name}>
+                <a href={link.url} target="_blank" rel="noopener noreferrer">
+                  <img src={link.icon} alt={link.name} />
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
 
@@ -135,13 +147,19 @@ export const Footer = () => {
       <div className="footer-rodape">
         <p>Pett Love - Relacionamento | CNPJ: 43.660.696/0001-95 </p>
 
-        <MdKeyboardArrowUp className="footer-icon" onClick={handleClick} />
+        <MdKeyboardArrowUp
+          className="footer-icon"
+          onClick={handleScrollToTop}
+        />
 
-        <img src={Clickweb} alt="" />
+        <img src={Clickweb} alt="Logo" />
       </div>
 
       <div className="footer-mob-rodape">
-        <MdKeyboardArrowUp className="footer-icon" onClick={handleClick} />
+        <MdKeyboardArrowUp
+          className="footer-icon"
+          onClick={handleScrollToTop}
+        />
       </div>
     </footer>
   );

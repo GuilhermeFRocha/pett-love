@@ -3,14 +3,28 @@ import "../styles/home.scss";
 import { mockPosts } from "../utils/dataHomePage";
 import ScrollTransition from "../components/ScrollTransition";
 
+type mockPost = {
+  photo: string;
+  icon: string;
+  title: string;
+  description: string;
+  lineImg?: string;
+  lineMobImg?: string;
+};
+
+type RenderizeImageFunction = (
+  lineImg?: string,
+  lineMobImg?: string
+) => JSX.Element;
+
 export default function Home() {
   const matches = useMediaQuery("(max-width: 1124px)");
 
-  const RenderizeImage = (post: any) => {
+  const RenderizeImage: RenderizeImageFunction = (lineImg, lineMobImg) => {
     if (!matches) {
-      return <img src={post.lineImg} alt="Imagem Linha" />;
+      return <img src={lineImg} alt="" />;
     }
-    return <img src={post.lineMobImg} alt="Imagem Linha" />;
+    return <img src={lineMobImg} alt="" />;
   };
 
   return (
@@ -26,7 +40,7 @@ export default function Home() {
       </section>
 
       <main>
-        {mockPosts.map((post: any) => (
+        {mockPosts.map((post: mockPost) => (
           <ScrollTransition>
             <section className="post-container">
               <div className="post-img">
@@ -38,7 +52,9 @@ export default function Home() {
                 <p className="post-desc">{post.description}</p>
               </div>
             </section>
-            <div className="line-post">{RenderizeImage(post)}</div>
+            <div className="line-post">
+              {RenderizeImage(post.lineImg, post.lineMobImg)}
+            </div>
           </ScrollTransition>
         ))}
       </main>

@@ -1,5 +1,5 @@
 import { Menu } from "../Menu";
-import { useState } from "react";
+
 import "../Header/style.scss";
 
 import LoginIcon from "../../assets/login.svg";

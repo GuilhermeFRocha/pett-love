@@ -6,7 +6,43 @@ import "./style.scss";
 
 import MenuIcon from "../../assets/menu.svg";
 
+type MenuItem = {
+  label: string;
+  href: string;
+};
+
 export const Menu = () => {
+  const menuItems: MenuItem[] = [
+    {
+      label: "Sobre nós",
+      href: "/",
+    },
+    {
+      label: "Dúvidas frequentes",
+      href: "/duvidas",
+    },
+    {
+      label: "Pets namorando",
+      href: "/pets",
+    },
+    {
+      label: "Contato",
+      href: "/contato",
+    },
+    {
+      label: "Como funciona",
+      href: "/",
+    },
+    {
+      label: "Blog",
+      href: "/blog",
+    },
+    {
+      label: "Comece agora!",
+      href: "/pets",
+    },
+  ];
+
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
 
@@ -22,8 +58,8 @@ export const Menu = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleClickOutside = (event: any) => {
-    if (menuRef.current && !menuRef.current.contains(event.target)) {
+  const handleClickOutside = (event: MouseEvent) => {
+    if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
       setIsOpen(false);
     }
   };
@@ -35,8 +71,6 @@ export const Menu = () => {
     };
   }, []);
 
-  console.log(isOpen);
-
   return (
     <div className="menu" ref={menuRef}>
       <div className={`navbar ${isOpen ? "open" : ""}`}>
@@ -44,27 +78,11 @@ export const Menu = () => {
           <AiOutlineCloseCircle />
         </button>
         <ul className="menu-items">
-          <li>
-            <a href="/">Sobre nós</a>
-          </li>
-          <li>
-            <a href="/duvidas">Dúvidas frequentes</a>
-          </li>
-          <li>
-            <a href="/pets">Pets namorando</a>
-          </li>
-          <li>
-            <a href="/contato">Contato</a>
-          </li>
-          <li>
-            <a href="/">Como funciona</a>
-          </li>
-          <li>
-            <a href="/blog">Blog</a>
-          </li>
-          <li>
-            <a href="/pets">Comece agora!</a>
-          </li>
+          {menuItems.map((menuItem, index) => (
+            <li key={index}>
+              <a href={menuItem.href}>{menuItem.label}</a>
+            </li>
+          ))}
         </ul>
       </div>
       <button className="menu-toggle" onClick={toggleMenu}>
