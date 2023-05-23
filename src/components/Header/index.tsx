@@ -13,11 +13,11 @@ export const Header = () => {
           <Menu />
 
           <div className="header-logo">
-            <img src={Logo} alt="" />
+            <img src={Logo} alt="Logo" />
           </div>
 
           <button className="login-btn">
-            <img src={LoginIcon} alt="" />
+            <img src={LoginIcon} alt="Icone Login" />
             <span>Entrar</span>
           </button>
         </section>

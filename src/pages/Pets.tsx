@@ -28,14 +28,14 @@ export default function Pets() {
             <ScrollPet key={index}>
               <div className="pets-content">
                 <div className="pets-primary">
-                  <img src={pets.photoPetOne} alt="" />
+                  <img src={pets.photoPetOne} alt="Foto do pet" />
                   <p> {pets.namePetOne}</p>
                 </div>
                 <div className="pets-secundary">
-                  <img src={pets.photoPetTwo} alt="" />
+                  <img src={pets.photoPetTwo} alt="Foto do pet" />
                   <p> {pets.namePetTwo}</p>
                 </div>
-                <img src={Heart} alt="" className="pets-heart" />
+                <img src={Heart} alt="Icone do pet" className="pets-heart" />
               </div>
             </ScrollPet>
           ))}

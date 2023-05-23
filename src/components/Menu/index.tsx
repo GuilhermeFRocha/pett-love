@@ -68,7 +68,7 @@ export const Menu = () => {
         </ul>
       </div>
       <button className="menu-toggle" onClick={toggleMenu}>
-        <img src={MenuIcon} alt="" />
+        <img src={MenuIcon} alt="Icone Menu" />
         <p className="menu-title">Menu</p>
       </button>
     </div>

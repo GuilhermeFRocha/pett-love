@@ -8,9 +8,9 @@ export default function Home() {
 
   const RenderizeImage = (post: any) => {
     if (!matches) {
-      return <img src={post.lineImg} alt="" />;
+      return <img src={post.lineImg} alt="Imagem Linha" />;
     }
-    return <img src={post.lineMobImg} alt="" />;
+    return <img src={post.lineMobImg} alt="Imagem Linha" />;
   };
 
   return (

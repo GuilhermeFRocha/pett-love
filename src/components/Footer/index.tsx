@@ -41,7 +41,7 @@ export const Footer = () => {
     <footer>
       <div className="footer-container">
         <div className="footer-newsletter">
-          <img src={LogoFooter} alt="" />
+          <img src={LogoFooter} alt="logo" />
           <div className="footer-content-newsletter">
             <label htmlFor="email">Receba nossas novidades</label>
             <div className="footer-input">
@@ -79,7 +79,7 @@ export const Footer = () => {
               <p className="footer-entitie-title">Ajude uma entidade</p>
               <p className="footer-entitie-desc">
                 <span>
-                  SOS Vida Animal <img src={ArrowDown} alt="" />
+                  SOS Vida Animal <img src={ArrowDown} alt="Sos" />
                 </span>
               </p>
               <p className="footer-entitie-desc">
@@ -102,12 +102,12 @@ export const Footer = () => {
                 href="https://www.facebook.com/ClickwebAgencia/"
                 target="_blank"
               >
-                <img src={FaceIcon} alt="" />
+                <img src={FaceIcon} alt="Icone Facebook" />
               </a>
             </li>
             <li>
               <a href="https://www.instagram.com/clickweb/" target="_blank">
-                <img src={InstaIcon} alt="" />
+                <img src={InstaIcon} alt="Icone Insta" />
               </a>
             </li>
             <li>
@@ -115,7 +115,7 @@ export const Footer = () => {
                 href="https://www.youtube.com/@clickwebagenciadigital1101"
                 target="_blank"
               >
-                <img src={YoutubeIcon} alt="" />
+                <img src={YoutubeIcon} alt="Icone youtube" />
               </a>
             </li>
           </ul>
