@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState, ReactNode } from "react";
-import "../styles/home.scss"; // importa um arquivo CSS com as animações de transição
+import "./style.scss";
 
 interface ScrollTransitionProps {
   children: ReactNode;
@@ -15,7 +15,6 @@ function ScrollTransition({ children }: ScrollTransitionProps) {
       const windowHeight = window.innerHeight;
 
       if (top! < windowHeight * 0.95) {
-        // 80% da altura da janela
         setIsVisible(true);
       }
     }

@@ -1,12 +1,16 @@
+import { useRef } from "react";
+
 import { MdOutlineFileCopy, MdKeyboardArrowUp } from "react-icons/md";
 import { TbPointFilled } from "react-icons/tb";
+
+import "./style.scss";
+
 import LogoFooter from "../../assets/logo-footer.svg";
 import ArrowDown from "../../assets/arrow-down.svg";
 import FaceIcon from "../../assets/face-icon.svg";
 import InstaIcon from "../../assets/insta-icon.svg";
 import YoutubeIcon from "../../assets/youtube-icon.svg";
 import Clickweb from "../../assets/clickweb.svg";
-import { useRef } from "react";
 
 export const Footer = () => {
   const copyRef = useRef<HTMLSpanElement>(null);
@@ -52,7 +56,7 @@ export const Footer = () => {
             <nav className="footer-navbar">
               <ul>
                 <li>
-                  <a href="/sobre">Sobre nós</a>
+                  <a href="/">Sobre nós</a>
                 </li>
                 <li>
                   <a href="/como-funciona">Como funciona</a>
@@ -64,10 +68,7 @@ export const Footer = () => {
                   <a href="/blog">Blog</a>
                 </li>
                 <li>
-                  <a href="/pets">Pets namorando</a>
-                </li>
-                <li>
-                  <a href="/">Comece agora!</a>
+                  <a href="/pets">Comece agora!</a>
                 </li>
                 <li>
                   <a href="/contato">Contato</a>
@@ -137,6 +138,10 @@ export const Footer = () => {
         <MdKeyboardArrowUp className="footer-icon" onClick={handleClick} />
 
         <img src={Clickweb} alt="" />
+      </div>
+
+      <div className="footer-mob-rodape">
+        <MdKeyboardArrowUp className="footer-icon" onClick={handleClick} />
       </div>
     </footer>
   );

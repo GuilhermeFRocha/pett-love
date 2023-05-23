@@ -194,3 +194,92 @@ footer {
     display: none;
   }
 }
+
+@mixin responsive($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+@include responsive(1124px) {
+  footer .footer-container {
+    padding: 52px 0 0px 0;
+    .footer-newsletter {
+      justify-content: center;
+      text-align: center;
+      img {
+        display: none;
+      }
+
+      .footer-content-newsletter .footer-input {
+        margin-top: 25px;
+      }
+    }
+
+    .footer-container-nav {
+      padding-top: 60px;
+      justify-content: center;
+      .footer-content-nav {
+        display: none;
+      }
+    }
+
+    .footer-politicas {
+      display: none;
+    }
+  }
+  
+  footer .footer-rodape {
+    display: grid;
+    justify-items: center;
+    justify-content: center;
+    background-color: #546e4d;
+    row-gap: 40px;
+    margin-top: -1px;
+
+    p {
+      display: grid;
+      justify-items: center;
+    }
+
+    .footer-icon {
+      display: none;
+    }
+  }
+
+   .footer-mob-rodape {
+    display: grid !important;
+    background-color: #506849;
+    justify-items: center;
+    margin-top: -1px;
+    padding: 30px 0;
+
+    .footer-icon {
+      font-size: 4rem;
+      color: #fff;
+      cursor: pointer;
+    }
+  }
+}
+
+@include responsive(455px) {
+  footer .footer-container .footer-newsletter {
+    padding: 0 20px;
+
+    .footer-content-newsletter .footer-input  {
+      padding: 10px 10px 10px 10px;
+
+      input {
+        font-size: 0.875rem;
+      }
+
+      button {
+        font-size: 1rem;
+      }
+    }
+ 
+    label {
+      font-size: 1.4rem;
+    }
+  }
+}

@@ -1,0 +1,163 @@
+main {
+  .pets-title {
+    text-align: center;
+    padding-bottom: 80px;
+
+    h2 {
+      font-weight: 700;
+      font-size: 2.25rem;
+      color: #556f4d;
+      padding-bottom: 20px;
+      span {
+        color: #f6c63b;
+      }
+    }
+    p {
+      font-weight: 500;
+      font-size: 1.37rem;
+      color: #707070;
+    }
+  }
+
+  .pets-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    row-gap: 50px;
+
+    .pets-content {
+      display: flex;
+      gap: 20px;      
+      position: relative;
+
+      .pets-primary {
+        text-align: right;
+
+       p {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 22px;
+        color: #546E4D;
+        position: relative;
+
+
+        &::after {
+          content: 'e';
+          position: absolute;
+          right: -9%;
+        }
+       }
+      }
+      .pets-secundary {
+        text-align: left;
+
+        p {
+          font-weight: 700;
+          font-size: 18px;
+          line-height: 22px;
+          color: #546E4D;
+        }
+      }
+
+
+
+      .pets-heart {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+
+  .pets-btn {
+    padding-top: 80px;
+    text-align: center;
+
+    button {
+      border: none;
+      background-color: #f6c63b;
+      color: #546E4D;
+      cursor: pointer;
+      padding: 19px 85px;
+      border-radius: 30px;
+      font-weight: 700;
+      color: #546E4D;
+      font-size: 1.2rem;
+
+      &:hover {
+        opacity: 0.8;
+        transition: 0.2s;
+      }
+    }
+  }
+}
+
+.pets-main .pets-container {
+  .scroll-transition {
+    opacity: 0;
+    transform: translateX(-20%);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  
+    &:nth-child(2n) {
+      opacity: 0;
+      transform: translateX(20%);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+  }
+
+  
+.scroll-transition.is-visible {
+  opacity: 1;
+  transform: none;
+}
+}
+
+
+@mixin responsive($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+@include responsive(980px) {
+  .pets-main {
+    padding-top: 40px;
+
+    .pets-container {
+      grid-template-columns: 1fr ;
+    }
+  }
+}
+
+@include responsive(550px) {
+  .pets-main {
+    width: 90% !important;
+
+    .pets-container {
+
+      .pets-content {
+
+        div {
+          width: 100%;
+
+          img {
+            width: 80%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include responsive(450px) {
+  .pets-main .pets-btn button {
+    padding: 19px 30px
+  }
+}
+
+@include responsive(375px) {
+  main .pets-container .pets-content .pets-primary p::after {
+    right: -10%;
+  }
+}

@@ -13,7 +13,7 @@ export const mockPosts = [
   {
     photo: DogImg,
     icon: PetIcon,
-    title: "Cadastre seu animal",
+    title: `Cadastre seu animal`,
     description:
       " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donecegestas, erat et convallis gravida, nisl libero imperdiet dolor,et vestibulum tortor quam in nunc.",
     id: "1",
