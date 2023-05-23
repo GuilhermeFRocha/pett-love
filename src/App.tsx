@@ -7,9 +7,11 @@ import { Footer } from "./components/Footer";
 function App() {
   return (
     <BrowserRouter>
-      <Header />
-      <Router />
-      <Footer />
+      <div className="container-body">
+        <Header />
+        <Router />
+        <Footer />
+      </div>
     </BrowserRouter>
   );
 }
