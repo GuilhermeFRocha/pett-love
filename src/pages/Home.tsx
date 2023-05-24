@@ -40,23 +40,42 @@ export default function Home() {
       </section>
 
       <main>
-        {mockPosts.map((post: mockPost) => (
-          <ScrollTransition>
-            <section className="post-container">
-              <div className="post-img">
-                <img src={post.photo} alt="Imagem dog" />
+        {mockPosts.map((post: mockPost) => {
+          const ColoredTitle = ({ title }: any) => {
+            const coloredWords = ["animal", "procure", "encontro"];
+            const coloredTitle = title.replace(
+              new RegExp(`\\b(${coloredWords.join("|")})\\b`, "gi"),
+              `<span style="color: #F6C63B;">$1</span>`
+            );
+            return (
+              <h3
+                className="post-title"
+                dangerouslySetInnerHTML={{ __html: coloredTitle }}
+              />
+            );
+          };
+          return (
+            <ScrollTransition>
+              <section className="post-container">
+                <div className="post-img">
+                  <img src={post.photo} alt="Imagem dog" />
+                </div>
+                <div className="post-content">
+                  <img
+                    src={post.icon}
+                    alt="Icone do pet"
+                    className="post-icon"
+                  />
+                  <ColoredTitle title={post.title} />
+                  <p className="post-desc">{post.description}</p>
+                </div>
+              </section>
+              <div className="line-post">
+                {RenderizeImage(post.lineImg, post.lineMobImg)}
               </div>
-              <div className="post-content">
-                <img src={post.icon} alt="Icone do pet" className="post-icon" />
-                <h3 className="post-title">{post.title}</h3>
-                <p className="post-desc">{post.description}</p>
-              </div>
-            </section>
-            <div className="line-post">
-              {RenderizeImage(post.lineImg, post.lineMobImg)}
-            </div>
-          </ScrollTransition>
-        ))}
+            </ScrollTransition>
+          );
+        })}
       </main>
     </div>
   );
